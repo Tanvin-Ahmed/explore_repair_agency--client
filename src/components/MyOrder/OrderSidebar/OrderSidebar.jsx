@@ -11,7 +11,7 @@ const OrderSidebar = () => {
             <Link className="sidebar-link" to="/"><FontAwesomeIcon icon={faHome} /></Link>
             <div className="header"><h4>USER</h4></div>
             <div className="link-list">
-                <Link className="sidebar-link" to={`${url}/orderList`}><FontAwesomeIcon icon={faShoppingBasket} /> Order List</Link>
+                <Link className="sidebar-link" to={`${url}`}><FontAwesomeIcon icon={faShoppingBasket} /> Order List</Link>
                 <Link className="sidebar-link" to={`${url}/review`}><FontAwesomeIcon icon={faCommentDots} /> Review</Link>
             </div>
         </div>

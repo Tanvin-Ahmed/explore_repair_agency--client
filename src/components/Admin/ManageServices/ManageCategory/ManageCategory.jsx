@@ -7,7 +7,7 @@ import { Link, useRouteMatch } from 'react-router-dom';
 const ManageCategory = ({ category, getAllCategory }) => {
     const { url } = useRouteMatch();
     const handleDeleteCategory = (category) => {
-        fetch('http://localhost:5000/deleteCategory', {
+        fetch('https://serene-caverns-03356.herokuapp.com/deleteCategory', {
             method: 'DELETE',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ category })

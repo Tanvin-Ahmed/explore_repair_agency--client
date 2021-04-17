@@ -29,7 +29,7 @@ const AddService = () => {
             formData.append('description', data.description)
             formData.append('fee', data.fee)
 
-            fetch('http://localhost:5000/addService', {
+            fetch('https://serene-caverns-03356.herokuapp.com/addService', {
                 method: 'POST',
                 body: formData
             })
@@ -53,7 +53,7 @@ const AddService = () => {
 
     const handleCategorySelect = () => {
         setLoadingSpinner(true);
-        fetch('http://localhost:5000/getAllCategory')
+        fetch('https://serene-caverns-03356.herokuapp.com/getAllCategory')
         .then(res => res.json())
         .then(data => {
             setAllCategory(data);

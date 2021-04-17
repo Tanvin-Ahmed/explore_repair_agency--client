@@ -1,0 +1,7 @@
+.order-list {
+    margin-left: 17rem;
+    padding-top: 5rem;
+}
+.card:hover {
+    box-shadow: 0px 0px 5px 2px rgb(241, 241, 241) !important;
+}

@@ -16,7 +16,7 @@ const ServiceUpdateModal = ({ chosenService, isUpdate, setIsUpdate }) => {
             fee: data.fee,
             description: data.description,
         }
-        fetch(`http://localhost:5000/updateService/${chosenService._id}`, {
+        fetch(`https://serene-caverns-03356.herokuapp.com/updateService/${chosenService._id}`, {
             method: 'PATCH',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(item)

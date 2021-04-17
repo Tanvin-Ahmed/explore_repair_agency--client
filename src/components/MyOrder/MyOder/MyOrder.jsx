@@ -3,8 +3,8 @@ import { Switch, useRouteMatch } from 'react-router';
 import PrivateRoute from '../../PrivateRoute/PrivateRoute';
 import OrderSidebar from '../OrderSidebar/OrderSidebar';
 import './MyOrder.css';
-import Payment from '../../Home/Payment/Payment';
 import Review from '../Review/Review';
+import OrderList from '../OrderList/OrderList';
 
 const MyOrder = () => {
     const {path} = useRouteMatch();
@@ -12,9 +12,9 @@ const MyOrder = () => {
         <section className="myOrder">
             <OrderSidebar />
             <Switch>
-                {/* <PrivateRoute exact path={`${path}`}>
-                    <Payment />
-                </PrivateRoute> */}
+                <PrivateRoute exact path={`${path}`}>
+                    <OrderList />
+                </PrivateRoute>
                 <PrivateRoute path={`${path}/review`}>
                     <Review />
                 </PrivateRoute>

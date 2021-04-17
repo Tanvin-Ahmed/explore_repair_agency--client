@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { appContext } from '../../../App';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import './PaymentForm.css';
+import axios from 'axios';
 
 const PaymentForm = ({ chosenItem }) => {
     const { loggedInUser } = useContext(appContext);
@@ -31,16 +32,15 @@ const PaymentForm = ({ chosenItem }) => {
             // console.log('payment', paymentMethod);
 
             if (chosenItem) {
-                const newOrder = { ...chosenItem };
-                newOrder.email = loggedInUser.email;
-                newOrder.paymentId = paymentMethod.id;
-                console.log(newOrder);
-                fetch('http://localhost:5000/placeOrder', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(newOrder)
-                })
-                    .then(res => res.json())
+                const newOrder = { 
+                    email: loggedInUser?.email,
+                    paymentId: paymentMethod?.id,
+                    category: chosenItem.category,
+                    serviceName: chosenItem?.serviceName,
+                    fee: chosenItem?.fee,
+                    status: 'pending'
+                 };
+                axios.post('https://serene-caverns-03356.herokuapp.com/placeOrder', newOrder)
                     .then(data => {
                         setPaymentSuccess(paymentMethod.id);
                     })

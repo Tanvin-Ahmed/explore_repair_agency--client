@@ -11,3 +11,21 @@
     background-color: white !important;
     border-top: none !important;
 }
+.pendingBg{
+    background-color: rgb(255, 192, 192) !important;
+}
+.pendingText {
+    color: rgb(255, 53, 53);
+}
+.ongoingBg {
+    background-color: rgba(255, 166, 0, 0.198);
+}
+.ongoingText{
+    color: orange;
+}
+.doneBg {
+    background-color: rgba(94, 255, 0, 0.157);
+}
+.doneText{
+    color: rgb(5, 204, 71);
+}

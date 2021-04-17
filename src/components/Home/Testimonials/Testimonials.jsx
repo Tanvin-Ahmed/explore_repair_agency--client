@@ -10,11 +10,10 @@ const Testimonials = () => {
 
     useEffect(() => {
         setLoadingSpinner(true);
-        fetch('http://localhost:5000/getAllReview')
+        fetch('https://serene-caverns-03356.herokuapp.com/getAllReview')
             .then(res => res.json())
             .then(data => {
                 setReviews(data);
-                console.log(data);
                 setLoadingSpinner(false);
             })
             .catch(err => console.log(err));

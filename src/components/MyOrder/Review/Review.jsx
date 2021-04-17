@@ -10,7 +10,7 @@ const Review = () => {
         const newReview = { ...data }
         newReview.image = loggedInUser.photoURL
 
-        fetch('http://localhost:5000/addReview', {
+        fetch('https://serene-caverns-03356.herokuapp.com/addReview', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({newReview})
@@ -27,7 +27,8 @@ const Review = () => {
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <div className="row">
                             <div className="col-md-6">
-                                <input className="form-control my-2" defaultValue={loggedInUser?.displayName} {...register("name")} />
+                                <input className="form-control my-2" defaultValue={loggedInUser?.displayName} {...register("name", { required: true })} />
+                                {errors.name && <span className="text-danger">This field is required</span>}
                             </div>
                             <div className="col-md-6">
                                 <input className="form-control my-2" placeholder="Rating Number" {...register("rate", { required: true })} />

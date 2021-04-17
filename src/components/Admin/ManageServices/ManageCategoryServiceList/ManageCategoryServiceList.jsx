@@ -19,7 +19,7 @@ const ManageCategoryServiceList = () => {
 
     const getServiceItems = () => {
         setLoadingSpinner(true);
-        fetch(`http://localhost:5000/serviceItem/${category}`)
+        fetch(`https://serene-caverns-03356.herokuapp.com/serviceItem/${category}`)
             .then(res => res.json())
             .then(data => {
                 setService(data);
@@ -35,7 +35,7 @@ const ManageCategoryServiceList = () => {
 
 
     const handleDeleteServiceItem = (id) => {
-        fetch(`http://localhost:5000/deleteServiceItem/${id}`, {
+        fetch(`https://serene-caverns-03356.herokuapp.com/deleteServiceItem/${id}`, {
             method: 'DELETE',
         })
             .then(res => res.json())
