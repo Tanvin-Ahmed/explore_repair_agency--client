@@ -1,23 +1,57 @@
-import logo from './logo.svg';
 import './App.css';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
+import SimplePayment from './components/SimplePayment/SimplePayment';
+import Login from './components/Login/Login';
+import { createContext, useState } from 'react';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import Home from './components/Home/Home/Home';
+import { useEffect } from 'react';
+import Admin from './components/Admin/Admin/Admin';
+import ServiceList from './components/Home/ServiceList/ServiceList';
+import MyOrder from './components/MyOrder/MyOder/MyOrder';
+
+export const appContext = createContext();
 
 function App() {
+  const [loggedInUser, setLoggedInUser] = useState({});
+  const [loadingSpinner, setLoadingSpinner] = useState(false);
+  
+  useEffect(() => {
+    setLoggedInUser(JSON.parse(sessionStorage.getItem('user')))
+  }, [])
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <appContext.Provider
+        value={{
+          loggedInUser, setLoggedInUser,
+          loadingSpinner, setLoadingSpinner
+        }}>
+        <Router>
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route path="/services/:category">
+              <ServiceList />
+            </Route>
+
+            <Route path="/login">
+              <Login />
+            </Route>
+            <PrivateRoute path="/admin">
+              <Admin />
+            </PrivateRoute>
+            <PrivateRoute path="/myOrder">
+              <MyOrder />
+            </PrivateRoute>
+          </Switch>
+        </Router>
+      </appContext.Provider>
     </div>
   );
 }

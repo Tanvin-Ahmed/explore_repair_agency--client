@@ -1,0 +1,25 @@
+.order-sidebar{
+    background-color: rgb(235, 64, 2);
+    color: rgb(255, 255, 255);
+    width: 15rem;
+    height: 100vh;
+    padding: 1.5rem;
+    position: fixed;
+}
+.order-sidebar .header{
+    margin-top: 0.5rem;
+}
+.order-sidebar .link-list{
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.6rem;
+}
+.order-sidebar .sidebar-link {
+    color: rgb(255, 255, 255) !important;
+    text-decoration: none !important;
+    margin-top: 1rem;
+    transition: all 0.5s !important;
+}
+.order-sidebar .sidebar-link:hover {
+    color: rgb(211, 209, 209) !important;
+}
