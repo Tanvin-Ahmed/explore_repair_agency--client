@@ -3,9 +3,10 @@ import { appContext } from '../../../App';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import './PaymentForm.css';
 import axios from 'axios';
+import { Spinner } from 'react-bootstrap';
 
 const PaymentForm = ({ chosenItem }) => {
-    const { loggedInUser } = useContext(appContext);
+    const { loggedInUser, loadingSpinner, setLoadingSpinner } = useContext(appContext);
     const stripe = useStripe();
     const elements = useElements();
     const [paymentError, setPaymentError] = useState(null);
@@ -42,9 +43,11 @@ const PaymentForm = ({ chosenItem }) => {
                     status: 'Pending',
                     date: new Date().toLocaleString()
                  };
+                 setLoadingSpinner(true);
                 axios.post('https://serene-caverns-03356.herokuapp.com/placeOrder', newOrder)
                     .then(data => {
                         setPaymentSuccess(paymentMethod.id);
+                        setLoadingSpinner(false);
                     })
                     .catch(err => setPaymentError('Something went wrong, please try again'));
 
@@ -62,7 +65,7 @@ const PaymentForm = ({ chosenItem }) => {
                 <input type="text" className="form-control my-2" value={chosenItem?.serviceName} />
                 <CardElement />
                 <button className="user-payment-btn form-control mt-4 mb-3" type="submit" disabled={!stripe}>
-                    Pay {chosenItem?.fee}$
+                {loadingSpinner && <Spinner animation="grow" variant="warning" size="sm" />} Pay {chosenItem?.fee}$
                 </button>
             </form>
             {

@@ -8,7 +8,7 @@ const OrderSidebar = () => {
     const { url } = useRouteMatch();
     return (
         <div className="order-sidebar">
-            <Link className="sidebar-link" to="/"><FontAwesomeIcon icon={faHome} /></Link>
+            <Link className="home-link" to="/"><FontAwesomeIcon icon={faHome} /></Link>
             <div className="header"><h4>USER</h4></div>
             <div className="link-list">
                 <Link className="sidebar-link" to={`${url}`}><FontAwesomeIcon icon={faShoppingBasket} /> Order List</Link>

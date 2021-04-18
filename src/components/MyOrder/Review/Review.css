@@ -16,3 +16,10 @@
     background-color: orangered;
     color: #fff;
 }
+
+@media (max-width:600px) {
+    .review{
+        margin-left: initial;
+        padding-top: 3rem;
+    }
+}
