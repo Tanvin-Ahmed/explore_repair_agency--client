@@ -44,7 +44,7 @@ const ManageCategoryServiceList = () => {
     }
 
     return (
-        <div>
+        <div className="admin-manage-list">
             <Switch>
                 <Route exact path={`${path}`}>
                     <h5 style={{ color: 'orangered' }}>Service list</h5>

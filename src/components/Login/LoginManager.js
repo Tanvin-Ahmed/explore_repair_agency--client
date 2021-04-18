@@ -5,8 +5,6 @@ import firebaseConfig from './firebase.config';
 export const initializationLoginFramework = () => {
     if (!firebase.apps.length) {
         firebase.initializeApp(firebaseConfig);
-    } else {
-        firebase.app();
     }
 }
 

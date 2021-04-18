@@ -33,10 +33,11 @@ const OrderList = () => {
                                             <div className="card-body">
                                                 <h5 className="card-title header-color">Name: {order?.serviceName}</h5>
                                                 <h6 className="card-text" style={{ color: 'orangered' }}>Category: {order?.category}</h6>
-                                                <small>Fee: {order.fee}$</small>
+                                                <p>Fee: {order.fee}$</p>
+                                                <small className="text-muted">Date: {order?.date}</small>
                                             </div>
-                                            <div className={`card-footer text-center ${(order?.status === 'pending' && 'pendingBg') || (order?.status === 'ongoing' && 'ongoingBg') || (order?.status === 'done' && 'doneBg')}`}>
-                                                <h6 className={`${(order?.status === 'pending' && 'pendingText') || (order?.status === 'ongoing' && 'ongoingText') || (order?.status === 'done' && 'doneText')}`}>{order?.status}</h6>
+                                            <div className={`card-footer text-center ${(order?.status === 'Pending' && 'pendingBg') || (order?.status === 'On going' && 'ongoingBg') || (order?.status === 'Done' && 'doneBg')}`}>
+                                                <h6 className={`${(order?.status === 'Pending' && 'pendingText') || (order?.status === 'On going' && 'ongoingText') || (order?.status === 'Done' && 'doneText')}`}>{order?.status}</h6>
                                             </div>
                                         </div>
                                     </div>

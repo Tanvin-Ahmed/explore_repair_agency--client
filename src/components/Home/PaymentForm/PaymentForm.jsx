@@ -34,11 +34,13 @@ const PaymentForm = ({ chosenItem }) => {
             if (chosenItem) {
                 const newOrder = { 
                     email: loggedInUser?.email,
+                    userName: loggedInUser?.displayName,
                     paymentId: paymentMethod?.id,
                     category: chosenItem.category,
                     serviceName: chosenItem?.serviceName,
                     fee: chosenItem?.fee,
-                    status: 'pending'
+                    status: 'Pending',
+                    date: new Date().toLocaleString()
                  };
                 axios.post('https://serene-caverns-03356.herokuapp.com/placeOrder', newOrder)
                     .then(data => {

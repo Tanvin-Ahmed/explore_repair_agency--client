@@ -15,17 +15,17 @@
     background-color: rgb(255, 192, 192) !important;
 }
 .pendingText {
-    color: rgb(255, 53, 53);
+    color: rgb(255, 53, 53) !important;
 }
 .ongoingBg {
-    background-color: rgba(255, 166, 0, 0.198);
+    background-color: rgba(255, 217, 0, 0.198) !important;
 }
 .ongoingText{
-    color: orange;
+    color: rgb(255, 179, 0) !important;
 }
 .doneBg {
-    background-color: rgba(94, 255, 0, 0.157);
+    background-color: rgba(94, 255, 0, 0.157) !important;
 }
 .doneText{
-    color: rgb(5, 204, 71);
+    color: rgb(5, 204, 71) !important;
 }

@@ -6,9 +6,13 @@ import { Spinner } from 'react-bootstrap';
 import { useHistory, useLocation } from 'react-router';
 import { appContext } from '../../App';
 
+
+initializationLoginFramework();
+
+
 const Login = () => {
     const { setLoggedInUser, loadingSpinner, setLoadingSpinner } = useContext(appContext);
-    initializationLoginFramework();
+    
     const [login, setLogin] = useState(true);
 
     const [user, setUser] = useState({
@@ -29,8 +33,7 @@ const Login = () => {
         setLoadingSpinner(false);
         const userInfo = {
             email: res.email,
-            displayName: res.displayName || user.name,
-            photoURL: res?.photoURL
+            displayName: res.displayName || user.name
         };
         sessionStorage.setItem('user', JSON.stringify(userInfo));
         if (success) {

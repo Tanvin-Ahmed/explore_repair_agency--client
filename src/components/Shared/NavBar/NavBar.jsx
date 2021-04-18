@@ -35,8 +35,9 @@ const NavBar = () => {
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="ml-auto d-flex align-items-center">
                     <Nav.Link><Link className="navLink-text" to="/">HOME</Link></Nav.Link>
+                    <Nav.Link><Link className="navLink-text" to="/myOrder">MY ORDER</Link></Nav.Link>
                     {
-                        isAdmin ? <Nav.Link><Link className="navLink-text" to="/admin">ADMIN</Link></Nav.Link> : <Nav.Link><Link className="navLink-text" to="/myOrder">MY ORDER</Link></Nav.Link>
+                        isAdmin && <Nav.Link><Link className="navLink-text" to="/admin">ADMIN</Link></Nav.Link>
                     }
                     <Nav.Link><Link className="navLink-text">ABOUT</Link></Nav.Link>
                     <Nav.Link><Link className="navLink-text">CONTACT US</Link></Nav.Link>
