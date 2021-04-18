@@ -12,7 +12,7 @@ import Home from './components/Home/Home/Home';
 import { useEffect } from 'react';
 import Admin from './components/Admin/Admin/Admin';
 import ServiceList from './components/Home/ServiceList/ServiceList';
-import MyOrder from './components/MyOrder/MyOder/MyOrder';
+import UserPanel from './components/MyOrder/UserPanel/UserPanel';
 
 export const appContext = createContext();
 
@@ -22,7 +22,7 @@ function App() {
   
   useEffect(() => {
     setLoggedInUser(JSON.parse(sessionStorage.getItem('user')))
-  }, [])
+  }, []);
   
   return (
     <div className="App">
@@ -47,7 +47,7 @@ function App() {
               <Admin />
             </PrivateRoute>
             <PrivateRoute path="/myOrder">
-              <MyOrder />
+              <UserPanel />
             </PrivateRoute>
           </Switch>
         </Router>

@@ -1,10 +1,9 @@
 import React from 'react';
 import { Switch, useRouteMatch } from 'react-router';
 import PrivateRoute from '../../PrivateRoute/PrivateRoute';
-import OrderSidebar from '../OrderSidebar/OrderSidebar';
-import './MyOrder.css';
+import OrderSidebar from '../UserOrderSidebar/UserOrderSidebar';
 import Review from '../Review/Review';
-import OrderList from '../OrderList/OrderList';
+import OrderList from '../UserOrderList/UserOrderList';
 
 const MyOrder = () => {
     const {path} = useRouteMatch();

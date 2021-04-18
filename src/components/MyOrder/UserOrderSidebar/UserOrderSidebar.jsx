@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useRouteMatch } from 'react-router-dom';
-import './OrderSidebar.css';
+import './UserOrderSidebar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faShoppingCart, faShoppingBasket, faCommentDots } from '@fortawesome/free-solid-svg-icons';
 
