@@ -33,7 +33,7 @@ const PaymentForm = ({ chosenItem }) => {
             // console.log('payment', paymentMethod);
 
             if (chosenItem) {
-                const newOrder = { 
+                const newOrder = {
                     email: loggedInUser?.email,
                     userName: loggedInUser?.displayName,
                     paymentId: paymentMethod?.id,
@@ -42,8 +42,8 @@ const PaymentForm = ({ chosenItem }) => {
                     fee: chosenItem?.fee,
                     status: 'Pending',
                     date: new Date().toLocaleString()
-                 };
-                 setLoadingSpinner(true);
+                };
+                setLoadingSpinner(true);
                 axios.post('https://serene-caverns-03356.herokuapp.com/placeOrder', newOrder)
                     .then(data => {
                         setPaymentSuccess(paymentMethod.id);
@@ -65,7 +65,7 @@ const PaymentForm = ({ chosenItem }) => {
                 <input type="text" className="form-control my-2" value={chosenItem?.serviceName} />
                 <CardElement />
                 <button className="user-payment-btn form-control mt-4 mb-3" type="submit" disabled={!stripe}>
-                {loadingSpinner && <Spinner animation="grow" variant="warning" size="sm" />} Pay {chosenItem?.fee}$
+                    {loadingSpinner && <Spinner animation="grow" variant="warning" size="sm" />} Pay {chosenItem?.fee}$
                 </button>
             </form>
             {

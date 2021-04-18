@@ -12,7 +12,6 @@ const ServiceList = () => {
     const { category } = useParams();
     const { path, url } = useRouteMatch();
     const [items, setItems] = useState([]);
-    const [chosenItem, setChosenItem] = useState({});
 
     useEffect(() => {
         setLoadingSpinner(true);
@@ -31,10 +30,10 @@ const ServiceList = () => {
             <NavBar />
             <Switch>
                 <Route exact path={`${path}`}>
-                    <ServiceItem key="1" url={url} category={category} loadingSpinner={loadingSpinner} items={items} setChosenItem={setChosenItem} />
+                    <ServiceItem key="1" url={url} category={category} loadingSpinner={loadingSpinner} items={items} />
                 </Route>
-                <PrivateRoute path={`${path}/payment`}>
-                        <Payment key="2" chosenItem={chosenItem} />
+                <PrivateRoute path={`${path}/payment/:id`}>
+                        <Payment key="2" />
                 </PrivateRoute>
             </Switch>
         </section>

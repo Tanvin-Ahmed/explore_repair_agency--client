@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faConciergeBell } from '@fortawesome/free-solid-svg-icons';
 
 
-const ServiceItem = ({url, category, loadingSpinner, items, setChosenItem}) => {
+const ServiceItem = ({url, category, loadingSpinner, items }) => {
     return (
         <div className="container mt-5 pt-5">
             <h2 className="header-color text-center my-4">{category}</h2>
@@ -24,7 +24,7 @@ const ServiceItem = ({url, category, loadingSpinner, items, setChosenItem}) => {
                                         <h5 className="card-text">Fee: {item.fee} $</h5>
                                     </div>
                                     <div className="card-footer">
-                                        <Link onClick={() => setChosenItem(item)} style={{ textDecoration: 'none' }} to={`${url}/payment`}><button type="button" className="form-control serviceList-btn">Get Service <FontAwesomeIcon icon={faConciergeBell} /></button></Link>
+                                        <Link style={{ textDecoration: 'none' }} to={`${url}/payment/${item._id}`}><button type="button" className="form-control serviceList-btn">Get Service <FontAwesomeIcon icon={faConciergeBell} /></button></Link>
                                     </div>
                                 </div>
                             </div>
