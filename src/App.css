@@ -1,3 +1,6 @@
+*{
+    scroll-behavior: smooth !important;
+}
 .App {
     margin: 0;
     padding: 0;
