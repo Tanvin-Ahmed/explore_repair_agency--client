@@ -1,6 +1,7 @@
 import React from 'react';
 import { Spinner } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import './ServiceItem.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faConciergeBell } from '@fortawesome/free-solid-svg-icons';
 
@@ -16,7 +17,7 @@ const ServiceItem = ({url, category, loadingSpinner, items }) => {
                     {
                         items.map(item => (
                             <div class="col my-3">
-                                <div className="card h-100">
+                                <div className="card card-hover-effect h-100">
                                     <img src={`data:image/png;base64,${item.image.img}`} className="card-img-top" alt="..." />
                                     <div className="card-body">
                                         <h5 className="card-title header-color">{item.serviceName}</h5>
