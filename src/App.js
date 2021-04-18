@@ -13,6 +13,7 @@ import { useEffect } from 'react';
 import Admin from './components/Admin/Admin/Admin';
 import ServiceList from './components/Home/ServiceList/ServiceList';
 import UserPanel from './components/MyOrder/UserPanel/UserPanel';
+import NoMatch from './components/NoMatch/NoMatch';
 
 export const appContext = createContext();
 
@@ -49,6 +50,9 @@ function App() {
             <PrivateRoute path="/myOrder">
               <UserPanel />
             </PrivateRoute>
+            <Route path="*">
+              <NoMatch />
+            </Route>
           </Switch>
         </Router>
       </appContext.Provider>
